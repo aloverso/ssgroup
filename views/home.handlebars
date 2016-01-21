@@ -1,0 +1,44 @@
+<div class="container">
+<div>
+<h3>Add/Drop Student</h3>
+<div class="row">
+  <form id="ajax-form" action="handler" method="POST">
+	<div class="one-half column">
+	  Name: <input type="text" name="name"/><br/>
+	  <input type="radio" name="adddrop" value="add" checked/> Add<br/>
+	  <input type="radio" name="adddrop" value="drop"/> Drop<br/>
+	  <input type="submit" value="Submit">
+	  </div>
+	  <div class="one-half column">
+	  <input type="checkbox" name="attr" value="fast"/> Fast<br/>
+	  <input type="checkbox" name="attr" value="slow"/> Slow<br/>
+	  <input type="checkbox" name="attr" value="leader"/> Leader<br/>
+	  <input type="checkbox" name="attr" value="careful"/> Careful<br/>
+	  <input type="checkbox" name="attr" value="flexible"/> Flexible<br/>
+	  <input type="checkbox" name="attr" value="teacher"/> Peer Teacher<br/>
+	  <input type="checkbox" name="attr" value="taskdriver"/> Task Driver<br/>
+	  </div>
+	</form>
+
+</div>
+
+<div>
+<h3>Make Groups</h3>
+<form id="group-form" action="handler" method="POST">
+  Number: <input type="text" name="number"></br>
+  <input type="radio" name="numtype" value="groupsize" checked/> Group Size<br/>
+  <input type="radio" name="numtype" value="numgroups"/> Number of Groups<br/>
+  <input type="submit" value="Make Groups">
+</form>
+</div>
+
+<div class="row">
+	<div class="one-half column" id="result">
+		<h3>Class List</h3>
+		<ul>
+		</ul>
+	</div>
+	<div class="one-half column" id="groups">
+		
+	</div>
+</div>
