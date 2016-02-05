@@ -21,7 +21,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', index.home);
 
-app.get('/mongoose', index.mongoose);
+//app.get('/mongoose', index.mongoose);
 
 app.get("/handler", handler.handlerGET);
 app.get("/makegroups", handler.makegroupsGET);

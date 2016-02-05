@@ -9,7 +9,7 @@ routes.handlerGET = function(req, res) {
       var name = req.query.name;
 
       if (req.query.adddrop === "add") {
-         var bob = new Student({name: req.query.name});
+         var bob = new Student({name: req.query.name, traits: req.query.attr});
           bob.save(function (err) {
             if (err) {
               console.log("Problem saving", err);
@@ -59,6 +59,18 @@ routes.makegroupsGET = function(req, res) {
         }
         list.splice(studindex, 1);
       }
+
+      var group_alg = function() {
+        var numfast = 0;
+        Student.find({traits: "fast"}, function(err, kids) {
+          console.log(kids[0].name);
+          numfast += kids.length;
+          console.log(numfast);
+        });
+        console.log(numfast);
+      }();
+
+
       res.send(groups);
     });
   }

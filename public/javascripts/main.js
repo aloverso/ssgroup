@@ -4,7 +4,6 @@ var $makegroups = $("#group-form");
 
 var onSuccessList = function(data, status) {
 	for (var i=0; i<data.length; i++) {
-		console.log("hello");
 		listItem(data[i], 1);
 	}
 }
@@ -23,6 +22,7 @@ function listItem(item) {
 
 var onSuccess = function(data, status) {
   makeClassList();
+  $form.trigger("reset");
 };
 
 var onError = function(data, status) {
@@ -34,9 +34,14 @@ $form.submit(function(event) {
   event.preventDefault();
   var name = $form.find("[name='name']").val();
   var adddrop = $form.find("[name='adddrop']:checked").val();
+  var attr = $form.find("[name='attr']:checked").map(function() {
+    return this.value;
+  }).get();
+  //var attr = $form.find("[name='attr']:checked");
   $.get("handler", {
     name: name,
-    adddrop: adddrop
+    adddrop: adddrop,
+    attr: attr
   })
     .done(onSuccess)
     .error(onError);
@@ -52,6 +57,7 @@ var onSuccessGroups = function(data, status) {
 		}
 		$("#groups").append("</ul>");
 	}
+  $makegroups.trigger("reset");
 }
 
 $makegroups.submit(function(event) {
