@@ -3,6 +3,9 @@ var Student = require('./../models/studentModel.js');
 
 var routes = {};
 
+routes.home = function(req, res){
+  res.render("home");
+};
 
 routes.handlerGET = function(req, res) {
   if (req.xhr) {
